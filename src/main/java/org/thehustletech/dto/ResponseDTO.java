@@ -1,4 +1,4 @@
-package org.thehustletech.controller;
+package org.thehustletech.dto;
 
 public class ResponseDTO {
   private String responseText;
