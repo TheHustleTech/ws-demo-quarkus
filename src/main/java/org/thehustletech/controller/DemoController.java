@@ -6,6 +6,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
+import org.thehustletech.dto.AlbumDTO;
 import org.thehustletech.dto.ResponseDTO;
 import org.thehustletech.dto.ToDoDTO;
 import org.thehustletech.service.DemoService;
@@ -32,10 +33,18 @@ public class DemoController {
   }
 
   @GET
-  @Path("/external")
+  @Path("/external/todo")
   @Produces(MediaType.APPLICATION_JSON)
-  public ToDoDTO getExternalData() {
-    ToDoDTO dataFromExternalService = demoService.getDataFromExternalService();
+  public ToDoDTO getToDoExternalData() {
+    ToDoDTO dataFromExternalService = demoService.getToDoDataFromExternalService();
+    return dataFromExternalService;
+  }
+
+  @GET
+  @Path("/external/album")
+  @Produces(MediaType.APPLICATION_JSON)
+  public AlbumDTO getAlbumExternalData() {
+    AlbumDTO dataFromExternalService = demoService.getAlbumDataFromExternalService();
     return dataFromExternalService;
   }
 }
